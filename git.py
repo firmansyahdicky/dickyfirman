@@ -41,26 +41,21 @@ data_panen = {
     }
 }
 
-# Tampilkan seluruh data dari data_panen
 for lokasi, data in data_panen.items():
     print(f"{lokasi} - {data['nama_lokasi']}: {data['hasil_panen']}")
 
-# Tampilkan jumlah hasil panen jagung dari lokasi2
 jagung_lokasi2 = data_panen['lokasi2']['hasil_panen']['jagung']
 print(f"Jumlah hasil panen jagung dari lokasi2: {jagung_lokasi2}")
 
-# Tampilkan nama lokasi dari lokasi3
 nama_lokasi3 = data_panen['lokasi3']['nama_lokasi']
 print(f"Nama lokasi dari lokasi3: {nama_lokasi3}")
 
-# Masukkan jumlah hasil panen padi dan kedelai ke dalam variabel terpisah
 jumlah_padi = {lokasi: data['hasil_panen']['padi'] for lokasi, data in data_panen.items()}
 jumlah_kedelai = {lokasi: data['hasil_panen']['kedelai'] for lokasi, data in data_panen.items()}
 
 print(f"Jumlah hasil panen padi per lokasi: {jumlah_padi}")
 print(f"Jumlah hasil panen kedelai per lokasi: {jumlah_kedelai}")
 
-# Percabangan untuk memeriksa kondisi lokasi
 for lokasi, data in data_panen.items():
     padi = data['hasil_panen']['padi']
     jagung = data['hasil_panen']['jagung']
@@ -69,7 +64,6 @@ for lokasi, data in data_panen.items():
     else:
         print(f"{data['nama_lokasi']} dalam kondisi baik.")
 
-# Export ke file untuk GIT push
 with open("data_panen_output.txt", "w") as file:
     file.write("Seluruh data:\n")
     for lokasi, data in data_panen.items():
